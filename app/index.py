@@ -1,8 +1,9 @@
 from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
-from .database import Base, engine, SessionLocal
-from . import crud, schemas
-from .worker import process_job
+
+from database import Base, engine, SessionLocal
+import crud, schemas
+from worker import process_job
 
 Base.metadata.create_all(bind=engine)
 
